@@ -12,7 +12,7 @@ public class UserApiController {
 
     private final UserService userService;
 
-    @PostMapping("/user")
+    @PostMapping("/login")
     public String signup(AddUserRequest request){
         userService.save(request);
         return "redirect:/login";
