@@ -35,7 +35,8 @@ public class WebSecurityConfig {
                         .requestMatchers(
                                 new AntPathRequestMatcher("/login"),
                                 new AntPathRequestMatcher("/signup"),
-                                new AntPathRequestMatcher("/user")
+                                new AntPathRequestMatcher("/user"),
+                                new AntPathRequestMatcher("/error")
 
                         )
                         .permitAll()
@@ -51,7 +52,7 @@ public class WebSecurityConfig {
                 .build();
     }
 
-    @Bean
+    /*@Bean
     public AuthenticationManager authenticationManager(
             HttpSecurity http,
             BCryptPasswordEncoder bCryptPasswordEncoder,
@@ -62,7 +63,7 @@ public class WebSecurityConfig {
         provider.setUserDetailsService(userDetailsService);
         provider.setPasswordEncoder(bCryptPasswordEncoder);
         return new ProviderManager(provider);
-    }
+    }*/
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
