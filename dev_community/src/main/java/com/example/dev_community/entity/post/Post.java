@@ -1,5 +1,6 @@
 package com.example.dev_community.entity.post;
 
+import com.example.dev_community.domain.User;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -33,6 +34,10 @@ public class Post {
     @Column(nullable = false)
     @LastModifiedDate
     private LocalDateTime modifiedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User author;
 
     @Builder
     public Post(String title, String content, LocalDateTime createdAt, LocalDateTime modifiedAt) {
