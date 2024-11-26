@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common::head('글 목록')}">
+</head>
+<body>
+<div class="p-5 mb-5 text-center bg-light">
+    <h1 class="mb-3">community</h1>
+    <h4 class="mb-4">커뮤니티에 오신 것을 환영합니다.</h4>
+</div>
+<div class="container mt-5">
+    <article>
+        <input type="hidden" id="article-id" th:value="${post.id}">
+        <input type="text" class="form-control" id="title" th:value="${post.title}">
+        <textarea class="form-control" id="content" th:text="${post.content}"></textarea>
+        <button th:if="${post.id}!=null" type="button" id="modify-btn" class="btn btn-primary">수정</button>
+        <button th:if="${post.id}==null" type="button" id="create-btn" class="btn btn-primary">등록</button>
+    </article>
+</div>
+
+<script src="/js/post.js"></script>
+</body>
+</html>
